@@ -1,6 +1,6 @@
 # `@mcporbital/space-intelligence-mcp`
 
-Open-source Model Context Protocol server for space research. **5 grounded tools** across NASA JPL SBDB, JPL CAD (CNEOS),
+Open-source Model Context Protocol server for space research. **11 grounded tools** across NASA JPL SBDB, JPL CAD (CNEOS),
 NOAA SWPC + DSCOVR, and arXiv — every response carries a `provenance[]` chain to its primary source.
 
 **License:** Apache-2.0 · **Safety:** research / simulation / decision-support only — no live commanding · **Node:** ≥ 20

@@ -1,7 +1,7 @@
 {
   "name": "@mcporbital/space-intelligence-mcp",
   "version": "0.1.0",
-  "description": "Open-source MCP server for space research: 5 grounded tools across NASA SBDB, JPL CAD, NOAA SWPC and arXiv. Provenance-first; research / simulation / decision-support only — no live commanding.",
+  "description": "Open-source MCP server for space research: 11 grounded tools across NASA SBDB, JPL CAD, NOAA SWPC and arXiv. Provenance-first; research / simulation / decision-support only — no live commanding.",
   "license": "Apache-2.0",
   "type": "module",
   "bin": {
