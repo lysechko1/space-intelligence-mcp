@@ -1,4 +1,4 @@
-# `@cosmx/space-intelligence-mcp`
+# `@mcporbital/space-intelligence-mcp`
 
 Open-source Model Context Protocol server for space research. **5 grounded tools** across NASA JPL SBDB, JPL CAD (CNEOS),
 NOAA SWPC + DSCOVR, and arXiv — every response carries a `provenance[]` chain to its primary source.
@@ -35,10 +35,10 @@ Every result has the same envelope:
 
 ```bash
 # One-shot (recommended) — Claude Desktop, Cursor, Cline will spawn this on demand
-npx -y @cosmx/space-intelligence-mcp@latest
+npx -y @mcporbital/space-intelligence-mcp@latest
 
 # Or global install
-npm i -g @cosmx/space-intelligence-mcp
+npm i -g @mcporbital/space-intelligence-mcp
 space-intelligence-mcp     # boots stdio server on stdin/stdout
 ```
 
@@ -54,7 +54,7 @@ Edit `~/Library/Application Support/Claude/claude_desktop_config.json` (macOS) o
   "mcpServers": {
     "space-intelligence": {
       "command": "npx",
-      "args": ["-y", "@cosmx/space-intelligence-mcp@latest"]
+      "args": ["-y", "@mcporbital/space-intelligence-mcp@latest"]
     }
   }
 }
@@ -75,9 +75,9 @@ import { spawn } from "node:child_process";
 import { Client } from "@modelcontextprotocol/sdk/client/index.js";
 import { StdioClientTransport } from "@modelcontextprotocol/sdk/client/stdio.js";
 
-const child = spawn("npx", ["-y", "@cosmx/space-intelligence-mcp@latest"], { stdio: "pipe" });
+const child = spawn("npx", ["-y", "@mcporbital/space-intelligence-mcp@latest"], { stdio: "pipe" });
 const mcp = new Client({ name: "agent", version: "0" }, { capabilities: {} });
-await mcp.connect(new StdioClientTransport({ command: "npx", args: ["-y", "@cosmx/space-intelligence-mcp@latest"] }));
+await mcp.connect(new StdioClientTransport({ command: "npx", args: ["-y", "@mcporbital/space-intelligence-mcp@latest"] }));
 const { tools } = await mcp.listTools();
 
 const ana = new Anthropic();
@@ -134,7 +134,7 @@ Refusals return a structured envelope:
   "schema_version": "1.0",
   "refusal": true,
   "reason": "live-commanding",
-  "message": "…outside Cosmx's safety policy…"
+  "message": "…outside MCPOrbital's safety policy…"
 }
 ```
 
@@ -157,6 +157,6 @@ See [`../docs/08_MVP_ROADMAP.md`](../docs/08_MVP_ROADMAP.md) for the full phased
 
 If this server contributed to a publication, please cite:
 
-> Cosmx contributors (2026). *Cosmx Space-Intelligence MCP Server.* https://github.com/cosmx/space-intelligence-mcp
+> MCPOrbital contributors (2026). *MCPOrbital Space-Intelligence MCP Server.* https://github.com/lysechko1/space-intelligence-mcp
 
 Upstream attributions are automatically included in every `provenance[]` array.

@@ -1,5 +1,5 @@
 /**
- * Streamable HTTP transport for @cosmx/space-intelligence-mcp.
+ * Streamable HTTP transport for @mcporbital/space-intelligence-mcp.
  *
  * Boots a Node HTTP server that speaks the MCP Streamable HTTP protocol on
  * `POST /mcp`. Clients (claude.ai with managed MCP, Cursor remote, Cline,
@@ -21,7 +21,7 @@ import { TOOLS } from "./tools.js";
 import { REFUSAL_MESSAGE } from "./safety.js";
 import { installTls } from "./setup-tls.js";
 
-const NAME = "@cosmx/space-intelligence-mcp";
+const NAME = "@mcporbital/space-intelligence-mcp";
 const VERSION = "0.1.0";
 
 function zodToJsonSchema(schema: z.ZodTypeAny): Record<string, unknown> {
@@ -196,7 +196,7 @@ export async function startHttp(opts: HttpOptions): Promise<void> {
         await handleStateful(req, res, body);
       }
     } catch (err) {
-      process.stderr.write(`[cosmx-mcp http] error: ${(err as Error).stack ?? err}\n`);
+      process.stderr.write(`[mcporbital-mcp http] error: ${(err as Error).stack ?? err}\n`);
       if (!res.headersSent) {
         res.statusCode = 500;
         res.end("Internal server error");
@@ -208,9 +208,9 @@ export async function startHttp(opts: HttpOptions): Promise<void> {
 
   httpServer.listen(opts.port, opts.host, () => {
     const url = `http://${opts.host}:${opts.port}/mcp`;
-    process.stderr.write(`[cosmx-mcp] ${NAME} v${VERSION} listening on ${url}\n`);
-    process.stderr.write(`[cosmx-mcp] mode: ${opts.stateless ? "stateless" : "stateful"} · tools: ${TOOLS.length}\n`);
-    process.stderr.write(`[cosmx-mcp] health: http://${opts.host}:${opts.port}/health\n`);
+    process.stderr.write(`[mcporbital-mcp] ${NAME} v${VERSION} listening on ${url}\n`);
+    process.stderr.write(`[mcporbital-mcp] mode: ${opts.stateless ? "stateless" : "stateful"} · tools: ${TOOLS.length}\n`);
+    process.stderr.write(`[mcporbital-mcp] health: http://${opts.host}:${opts.port}/health\n`);
   });
 
   async function handleStateful(req: IncomingMessage, res: ServerResponse, body: unknown): Promise<void> {

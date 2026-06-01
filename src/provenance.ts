@@ -7,7 +7,7 @@ export type Provenance = {
   fields?: string[];
 };
 
-const UA = "Cosmx-MCP/0.1 (+https://cosmx.io; mailto:hello@cosmx.io)";
+const UA = "MCPOrbital-MCP/0.1 (+https://mcporbital.com; mailto:hello@mcporbital.com)";
 
 export class UpstreamError extends Error {
   constructor(public source: string, public status: number, message: string) {

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * @cosmx/space-intelligence-mcp — stdio entry.
+ * @mcporbital/space-intelligence-mcp — stdio entry.
  *
  * Boots an MCP server with 5 tools, advertising them via the standard
  * `tools/list` + `tools/call` protocol. Designed for Claude Desktop, Cursor,
@@ -21,7 +21,7 @@ import { TOOLS } from "./tools.js";
 import { REFUSAL_MESSAGE } from "./safety.js";
 import { installTls } from "./setup-tls.js";
 
-const NAME = "@cosmx/space-intelligence-mcp";
+const NAME = "@mcporbital/space-intelligence-mcp";
 const VERSION = "0.1.0";
 
 function zodToJsonSchema(schema: z.ZodTypeAny): Record<string, unknown> {
@@ -84,7 +84,7 @@ function parseArgs(argv: string[]) {
 }
 
 const USAGE = `\
-${"@cosmx/space-intelligence-mcp"}
+${"@mcporbital/space-intelligence-mcp"}
 
 Usage:
   space-intelligence-mcp                   stdio (default — for Claude Desktop / Cursor / Cline)
@@ -165,7 +165,7 @@ async function mainStdio() {
   const transport = new StdioServerTransport();
   await server.connect(transport);
   // stdio servers stay alive until the host closes the pipe; nothing else to do here
-  process.stderr.write(`[cosmx-mcp] ${NAME} v${VERSION} — ${TOOLS.length} tools advertised\n`);
+  process.stderr.write(`[mcporbital-mcp] ${NAME} v${VERSION} — ${TOOLS.length} tools advertised\n`);
 }
 
 async function main() {
@@ -186,6 +186,6 @@ async function main() {
 }
 
 main().catch((err) => {
-  process.stderr.write(`[cosmx-mcp] fatal: ${err?.stack ?? err}\n`);
+  process.stderr.write(`[mcporbital-mcp] fatal: ${err?.stack ?? err}\n`);
   process.exit(1);
 });

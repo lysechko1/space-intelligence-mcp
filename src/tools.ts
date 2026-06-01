@@ -334,7 +334,7 @@ export async function compare_data_sources(args: z.infer<typeof CompareInput>): 
     result: { field: args.field, values, agreement },
     provenance: [sbdb.provenance],
     disclaimers: agreement === "single-source"
-      ? ["Single-source value — Cosmx v0.2 adds MPC + Sentry + ADS cross-checks."]
+      ? ["Single-source value — MCPOrbital v0.2 adds MPC + Sentry + ADS cross-checks."]
       : [],
     is_simulation: false,
   };

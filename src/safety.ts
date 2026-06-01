@@ -19,7 +19,7 @@ const REFUSAL_PATTERNS: { re: RegExp; reason: string }[] = [
 
 export const REFUSAL_MESSAGE = [
   "This request asks for live, commanding, deceptive, or dual-use operations on a real space asset,",
-  "which is outside Cosmx's safety policy. The MCP server operates in research, simulation, and",
+  "which is outside MCPOrbital's safety policy. The MCP server operates in research, simulation, and",
   "decision-support modes only. Please rephrase as an analysis or simulation question, or escalate",
   "to your organisation's licensed operations channel.",
 ].join(" ");
