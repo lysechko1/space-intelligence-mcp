@@ -1,0 +1,65 @@
+{
+  "name": "@cosmx/space-intelligence-mcp",
+  "version": "0.1.0",
+  "description": "Open-source MCP server for space research: 5 grounded tools across NASA SBDB, JPL CAD, NOAA SWPC and arXiv. Provenance-first; research / simulation / decision-support only — no live commanding.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "bin": {
+    "space-intelligence-mcp": "./dist/index.js"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "ca-bundle.pem",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "tsc -p tsconfig.json --watch",
+    "start": "node dist/index.js",
+    "start:http": "node dist/index.js --http --port 8765",
+    "start:http:public": "node dist/index.js --http --host 0.0.0.0 --port 8765",
+    "smoke": "node dist/smoke.js",
+    "typecheck": "tsc --noEmit"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.4",
+    "undici": "^6.25.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^22.9.0",
+    "typescript": "^5.6.3"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "claude",
+    "space",
+    "astronomy",
+    "ephemeris",
+    "asteroid",
+    "satellite",
+    "nasa",
+    "esa",
+    "jpl",
+    "noaa",
+    "agent"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lysechko1/space-intelligence-mcp.git"
+  },
+  "homepage": "https://mcp.mcporbital.com",
+  "bugs": {
+    "url": "https://github.com/lysechko1/space-intelligence-mcp/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
